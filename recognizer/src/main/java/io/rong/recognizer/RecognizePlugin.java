@@ -13,6 +13,7 @@ import com.iflytek.cloud.SpeechUtility;
 import io.rong.imkit.RongExtension;
 import io.rong.imkit.plugin.IPluginModule;
 import io.rong.imkit.utilities.PermissionCheckUtil;
+import io.rong.recognizer.R;
 
 /**
  * Created by zwfang on 16/11/8.
@@ -27,7 +28,8 @@ public class RecognizePlugin implements IPluginModule {
      * @param context 上下文
      */
     public void init(Context context) {
-        SpeechUtility.createUtility(context.getApplicationContext(), SpeechConstant.APPID + "=581f2927"); //初始化
+        SpeechUtility.createUtility(context.getApplicationContext(), SpeechConstant.APPID +
+                "=581f2927"); //初始化
     }
 
     @Override
@@ -47,7 +49,8 @@ public class RecognizePlugin implements IPluginModule {
             return;
         }
         if (SpeechUtility.getUtility() == null) {
-            SpeechUtility.createUtility(extension.getContext().getApplicationContext(), SpeechConstant.APPID + "=581f2927"); //初始化
+            SpeechUtility.createUtility(extension.getContext().getApplicationContext(),
+                    SpeechConstant.APPID + "=581f2927"); //初始化
         }
         recognizerView = new RecognizerView(extension.getContext());
         recognizerView.setResultCallBack(new IRecognizedResult() {
